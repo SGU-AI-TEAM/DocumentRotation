@@ -1,0 +1,11 @@
+__ignore__
+_background_
+CMNDF
+CMNDB
+CCCDF
+CCCDB
+PP
+Card
+card
+bill
+paper

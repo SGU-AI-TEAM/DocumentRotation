@@ -1,0 +1,45 @@
+item {
+  id: 1
+  name: 'CMNDF'
+}
+
+
+item {
+  id: 2
+  name: 'CMNDB'
+}
+
+item {
+  id: 3
+  name: 'CCCDF'
+}
+
+item {
+  id: 4
+  name: 'CCCDB'
+}
+
+item {
+  id: 5
+  name: 'PP'
+}
+
+item {
+  id: 6
+  name: 'Card'
+}
+
+item {
+  id: 7
+  name: 'card'
+}
+
+item {
+  id: 8
+  name: 'bill'
+}
+
+item {
+  id: 9
+  name: 'paper'
+}
