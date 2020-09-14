@@ -1,9 +1,10 @@
 # Required
 Install git
 Install Docker: https://docs.docker.com/get-docker/
+
 If you have GPU:
-* Install Nvidia-driver
-* Install Nvidia-docker: https://github.com/NVIDIA/nvidia-docker
+*     Install Nvidia-driver
+*     Install Nvidia-docker: https://github.com/NVIDIA/nvidia-docker
 
 - all following commands will run under assumption that you are in project root
 - If error occur, please help me fix it. Thank you !
