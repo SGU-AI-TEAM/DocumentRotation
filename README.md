@@ -45,7 +45,7 @@ git clone https://github.com/wkentaro/labelme.git
 cd labelme
 pip install .
 # convert labelme annotation to Coco annotation
-python examples/instance_segmentation/labelme2coco.py ~/DocumentRotation/labelme_data/ ~/DocumentRotation/labelme_annotation/ --labels  ~/DocumentRotation/labels.txt
+python examples/instance_segmentation/labelme2coco.py ~/DocumentRotation/labelme_data/ ~/DocumentRotation/labelme_annotation/ --labels  ~/DocumentRotation/labels.txt --noviz
 # convert Coco annotation to Tensor Record
 cd ~/DocumentRotation
 export TRAIN_IMAGE_DIR=~/DocumentRotation/labelme_annotation/
