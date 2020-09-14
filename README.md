@@ -40,6 +40,7 @@ python object_detection/builders/model_builder_tf2_test.py
 ## Convert annotation data to trainable data
 
 ```bash
+cd /
 # install labelme
 git clone https://github.com/wkentaro/labelme.git
 cd labelme
