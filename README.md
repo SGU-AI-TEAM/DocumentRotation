@@ -7,7 +7,7 @@ If you have GPU:
 *     Install Nvidia-docker: https://github.com/NVIDIA/nvidia-docker
 
 - all following commands will run under assumption that you are in project root
-- If error occur, please help me fix it. Thank you !
+- If error occurs, please help us fix it. Thank you !
 # Training phase
 ## Data gathering
 Copy all image and json file to one folder inside this project, named "labelme_data"
