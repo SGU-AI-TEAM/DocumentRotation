@@ -12,6 +12,16 @@ If you have GPU:
 ## Data gathering
 Copy all image and json file to one folder inside this project, named "labelme_data"
 
+## Convert labelme data to Coco data
+```bash
+# install labelme
+git clone https://github.com/wkentaro/labelme.git
+cd labelme
+pip install .
+# convert labelme annotation to Coco annotation
+python examples/instance_segmentation/labelme2coco.py ~/DocumentRotation/labelme_data/ ~/DocumentRotation/labelme_annotation/ --labels  ~/DocumentRotation/labels.txt --noviz
+```
+
 ## Create Docker environment
 ```bash
 git clone https://github.com/tensorflow/models.git
@@ -29,6 +39,7 @@ pip install -U pip
 protoc object_detection/protos/*.proto --python_out=.
 # Install TensorFlow Object Detection API.
 cp object_detection/packages/tf2/setup.py .
+pip install tensorflow-gpu
 python -m pip install --use-feature=2020-resolver .
 ```
 
@@ -37,17 +48,8 @@ python -m pip install --use-feature=2020-resolver .
 python object_detection/builders/model_builder_tf2_test.py
 ```
 
-## Convert annotation data to trainable data
-
+## Convert Coco annotation to Tensor Record
 ```bash
-cd ~/
-# install labelme
-git clone https://github.com/wkentaro/labelme.git
-cd labelme
-pip install .
-# convert labelme annotation to Coco annotation
-python examples/instance_segmentation/labelme2coco.py ~/DocumentRotation/labelme_data/ ~/DocumentRotation/labelme_annotation/ --labels  ~/DocumentRotation/labels.txt --noviz
-# convert Coco annotation to Tensor Record
 cd ~/DocumentRotation
 export TRAIN_IMAGE_DIR=~/DocumentRotation/labelme_annotation/
 export VAL_IMAGE_DIR=~/DocumentRotation/labelme_annotation/
@@ -66,7 +68,7 @@ python ~/models/research/object_detection/dataset_tools/create_coco_tf_record.py
       --output_dir="${OUTPUT_DIR}"
 ```
 
-## download pre-trained model
+## Download pre-trained model
 Download from: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md
 Model name: Mask R-CNN Inception ResNet V2 1024x1024
 Save path: <project root>/
@@ -84,7 +86,7 @@ TF_FORCE_GPU_ALLOW_GROWTH=true  python ../models/research/object_detection/model
     --alsologtostderr
 ```
 
-## export inference model
+## Export inference model
 ```bash
 TF_FORCE_GPU_ALLOW_GROWTH=true  python ../models/research/object_detection/exporter_main_v2.py \
     --pipeline_config_path=${PIPELINE_CONFIG_PATH} \
@@ -96,12 +98,12 @@ TF_FORCE_GPU_ALLOW_GROWTH=true  python ../models/research/object_detection/expor
 
 # Test Phase
 
-# run test with Mask RCNN
+# Run test with Mask RCNN
 ```bash
 python mask_rcnn_rotation.py --image "labelme_annotation/JPEGImages/1 (57).jpg"
 ```
 
-# run test with keypoints
+# Run test with keypoints
 ```bash
 python keypoint_rotation.py -t "images/phoi_cmnd.png" --image "labelme_annotation/JPEGImages/1 (78).jpg"
 ```
