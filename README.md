@@ -22,7 +22,7 @@ docker build -f research/object_detection/dockerfiles/tf2/Dockerfile -t od .
 ## Run docker and install necessary packages
 ```bash
 docker run -it --runtime=nvidia -v $PWD:/home/tensorflow/DocumentRotation od  bash
-cd models/research
+cd ~/models/research
 # update pip
 pip install -U pip
 # Compile protos.
